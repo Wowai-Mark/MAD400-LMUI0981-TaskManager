@@ -216,24 +216,17 @@ class _TaskListScreenState extends State<TaskListScreen> {
             children: [
               Container(
                 margin: const EdgeInsets.fromLTRB(24, 20, 24, 24),
-                padding: const EdgeInsets.all(24),
+                padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
-                  gradient: const LinearGradient(
-                    colors: [
-                      Color(0xFF800020), // Ox Blood
-                      Color(0xFF4A0E1C), // Deep Wine
-                    ],
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                  ),
+                  color: Colors.white,
                   boxShadow: [
                     BoxShadow(
-                      color: const Color(0xFF800020).withAlpha(60),
-                      blurRadius: 24,
-                      offset: const Offset(0, 12),
+                      color: Theme.of(context).colorScheme.secondary.withAlpha(18),
+                      blurRadius: 20,
+                      offset: const Offset(0, 10),
                     ),
                   ],
-                  borderRadius: BorderRadius.circular(28),
+                  borderRadius: BorderRadius.circular(20),
                 ),
                 child: Column(
                   children: [
@@ -257,7 +250,7 @@ class _TaskListScreenState extends State<TaskListScreen> {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 28),
+                    const SizedBox(height: 18),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -287,27 +280,34 @@ class _TaskListScreenState extends State<TaskListScreen> {
                         Stack(
                           children: [
                             Container(
-                              height: 8,
+                              height: 10,
                               decoration: BoxDecoration(
-                                color: Colors.white.withAlpha(40),
+                                color: Theme.of(context)
+                                    .colorScheme
+                                    .secondary
+                                    .withAlpha(30),
                                 borderRadius: BorderRadius.circular(10),
                               ),
                             ),
                             LayoutBuilder(
                               builder: (context, constraints) {
                                 return AnimatedContainer(
-                                  duration: const Duration(milliseconds: 1000),
+                                  duration: const Duration(milliseconds: 800),
                                   curve: Curves.fastOutSlowIn,
-                                  height: 8,
+                                  height: 10,
                                   width:
                                       constraints.maxWidth *
                                       completionPercentage,
                                   decoration: BoxDecoration(
-                                    color: Colors.white,
+                                    color:
+                                        Theme.of(context).colorScheme.secondary,
                                     borderRadius: BorderRadius.circular(10),
                                     boxShadow: [
                                       BoxShadow(
-                                        color: Colors.white.withAlpha(100),
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .secondary
+                                            .withAlpha(60),
                                         blurRadius: 8,
                                       ),
                                     ],
@@ -456,26 +456,27 @@ class _TaskListScreenState extends State<TaskListScreen> {
         Container(
           padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(
-            color: Colors.white.withAlpha(30),
+            color: Theme.of(context).colorScheme.secondary.withAlpha(20),
             shape: BoxShape.circle,
           ),
-          child: Icon(icon, color: Colors.white, size: 20),
+          child: Icon(icon,
+              color: Theme.of(context).colorScheme.secondary, size: 20),
         ),
         const SizedBox(height: 8),
         Text(
           value,
-          style: const TextStyle(
-            fontSize: 22,
+          style: TextStyle(
+            fontSize: 20,
             fontWeight: FontWeight.w900,
-            color: Colors.white,
+            color: Theme.of(context).textTheme.bodyLarge?.color ?? Colors.black87,
           ),
         ),
         Text(
           label,
-          style: const TextStyle(
-            fontSize: 9,
-            fontWeight: FontWeight.w800,
-            color: Colors.white60,
+          style: TextStyle(
+            fontSize: 11,
+            fontWeight: FontWeight.w700,
+            color: Theme.of(context).textTheme.bodyMedium?.color?.withAlpha(200) ?? Colors.black54,
             letterSpacing: 1,
           ),
         ),
